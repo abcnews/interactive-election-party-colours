@@ -1,0 +1,16 @@
+:global {
+  .interactive-election-party-colours {
+    &__labor {
+      color: #e81c2e;
+    }
+    &__coalition {
+      color: #0a52bf;
+    }
+    &__greens {
+      color: #508421;
+    }
+    &__independents {
+      color: #595959;
+    }
+  }
+}
