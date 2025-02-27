@@ -4,9 +4,9 @@ import('./style.scss');
 const CLASS_NAME = 'interactive-election-party-colours';
 
 function renderApp() {
-  document.querySelectorAll('[data-component="Anchor"][id^=partycolour]').forEach(partyStarter => {
+  const targets = document.querySelectorAll('[data-component="Anchor"][id^=partycolour]');
+  targets.forEach(partyStarter => {
     const party = (partyStarter.getAttribute('id') || '').replace('partycolour', '').toLowerCase();
-    console.log('starting party with', party);
 
     const classes = [CLASS_NAME, `${CLASS_NAME}__${party}`];
     let node = partyStarter.nextSibling;
