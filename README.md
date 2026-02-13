@@ -1,16 +1,33 @@
 # interactive-election-party-colours
 
-A project generated from [aunty](https://github.com/abcnews/aunty)'s `basic` project template.
+This project automatically highlights party names in an article when they are wrapped in `<strong>` tags. It replaces them with a Svelte component that applies the official party colours.
 
-Start a section with one of the following:
+## How it works
 
-- `#partycolourLABOR`
-- `#partycolourCOALITION`
-- `#partycolourGREENS`
-- `#partycolourINDEPENDENTS`
+The script scans the DOM for all `<strong>` tags. If the text content matches a keyword defined for a party, it mounts the `InlineHighlights` component to replace the element with a styled "pill" representation.
 
-The script will search all subsequent paragraphs for `<strong>` tags, and colourise them in the party colour.
+## Configuration
 
-Place the marker directly before a heading to change it to the party colour also.
+Parties, their keywords, and their associated background/foreground colours are configured in `src/constants.ts`.
 
-This script only works on headings and paragraphs. Once it finds another heading, image, or any other element it will colourising. You can add another hash to colourise the next section.
+### Example Configuration:
+
+```typescript
+export const PARTIES: Record<string, PartyConfig> = {
+  labor: {
+    keywords: ['labor', 'alp', 'australian labor party'],
+    bg: '#e11f30',
+    fg: 'white'
+  }
+  // ...
+};
+```
+
+## Adding new parties
+
+To add a new party or modify existing ones, edit the `PARTIES` object in `src/constants.ts`.
+
+1.  **key**: A semantic name for the party.
+2.  **keywords**: An array of strings used to match text in `<strong>` tags (case-insensitive).
+3.  **bg**: The background hex colour.
+4.  **fg**: The text colour (use something with high contrast against the background).

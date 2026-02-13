@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>interactive-election-party-colours</title>
+    <title>interactive-election-party-colours-II</title>
     <!-- If you add `extractCSS:true` to your build config, add the <link> below -->
     <!-- <link rel="stylesheet" href="index.css" /> -->
     <script src="index.js"></script>
@@ -12,6 +12,10 @@
     <!-- <script nomodule src="index.js"></script> -->
   </head>
   <body>
-    <div data-mount id="interactiveelectionpartycoloursX42YtextZtrue"></div>
+    <div data-mount id="interactiveelectionpartycoloursiiX42YtextZtrue"></div>
+    <!-- Mock Odyssey's loaded event so the `whenOdysseyLoaded` promise resolves -->
+    <script>
+      window.dispatchEvent(new CustomEvent('odyssey:api'));
+    </script>
   </body>
 </html>
